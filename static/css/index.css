@@ -1,0 +1,350 @@
+/* styles.css */
+
+/* General Styles */
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #ffffff;
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    
+}
+
+/* Header Styles */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    box-shadow: 0px 0px 1px rgba(23, 26, 31, 0.07);
+    background-color: #ffffff;
+}
+
+.logo {
+    display: flex; /* Enables Flexbox */
+    align-items: center; /* Vertically aligns items in the middle */
+    gap: 10px; /* Adds some space between the image and the text */
+}
+
+.logo img {
+    width: 30px; /* Adjusts the width of the image */
+    height: auto; /* Maintains the aspect ratio */
+}
+
+.logo span {
+    font-family: 'Inter', sans-serif;
+    font-size: 30px;
+    font-weight: bolder; /* Makes the text bold */
+    color: #171A1F; /* Sets the text color */
+}
+
+.nav {
+    display: flex;
+    align-items: center; /* Align items vertically in the center */
+    margin-left: 100px; /* Adjust the left margin as needed */
+}
+
+.nav-item {
+    margin-right: 20px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #565E6C;
+    position: relative;
+}
+.navbar-link {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    color: #565E6C;
+    text-decoration: none;
+}
+
+.navbar-link:hover {
+    color: #000000;
+}
+.indicator {
+    position: absolute;
+    width: 24px;
+    height: 10px;
+    background: #4286C5;
+    bottom: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 4px;
+    display: none;
+}
+
+
+.get-started-btn{
+    margin-left: 10px;
+    background-color: black;
+    padding: 10px 20px;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 400;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.get-started-btn:hover {
+    background-color: #333333; /* A lighter shade of black */
+    font-size: 16px; /* Slightly larger font size */
+}
+
+
+
+
+/* Main Content Styles */
+.main-content {
+    padding: 0px;
+   
+}
+.hero {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 600px; /* Set the height of the hero section */
+    background-image: url('/static/images/bg.jpg'); /* Set the background image */
+    background-size: cover; /* Cover the entire hero section */
+    background-position: center; /* Center the background image */
+    position: relative; /* Set position relative to allow absolute positioning of text */
+    color: #ffffff; /* Set text color */
+}
+
+/* Positioning for the hero content */
+
+
+.hero-content {
+    margin-left: 30px;
+    flex: 1;
+}
+
+.hero-title {
+    font-size: 53px;
+    font-weight: 700;
+    color: #171A1F;
+    line-height: 1.3;
+    margin-bottom: 20px;
+}
+
+.hero-description {
+    font-size: 17px;
+    font-weight: 400;
+    color: #171A1F;
+    margin-bottom: 20px;
+}
+
+.button-container {
+    display: flex;
+}
+
+/* Top Books Section Styles */
+.top-books {
+    margin: 0 auto;
+    margin-top: 60px;
+    width:1440px;
+    margin-top:210px;
+    margin-bottom: 40px;
+}
+.search-books {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%; /* Adjust based on your design */
+    padding: 20px; /* Add some padding for better spacing */
+    height:300px
+}
+
+.recommended-books{
+    margin: 0 auto;
+    margin-top: 60px;
+    width:1440px;
+    margin-top:40px;
+    margin-bottom: 40px;
+}
+.section-title {
+    font-size: 46px;
+    font-weight: 700;
+    color: #171A1F;
+    line-height: 1.3;
+    margin-bottom: 20px;
+}
+
+.section-description {
+    font-size: 16px;
+    font-weight: 400;
+    color: #171A1F;
+    margin-bottom: 20px;
+}
+
+
+/* Adjust the grid container to ensure only 4 cards per row */
+.book-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Ensures even spacing between cards */
+    gap: 25px; /* Adjusts the space between cards */
+    padding: 20px; /* Adds space around the grid */
+}
+
+/* Adjust the width of each card to fit 4 per row */
+.book-card {
+    width: 262px; /* Adjusted to fit 4 cards in a row with the specified gap */
+    height: 363px;
+    background-color: #DBDADA;
+    box-shadow: 0px 0px 1px rgba(23, 26, 31, 0.07);
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px; /* Adds space below each card */
+}
+
+/* Adjust the image size within each card */
+.book-card img {
+    width: 262px; /* Makes the image responsive to the card width */
+    height: 210px; /* Maintains aspect ratio */
+    border-radius: 16px;
+}
+
+.book-card:hover {
+    transform: scale(1.05); /* Slight scale up on hover for a subtle animation */
+    transition: transform 0.3s ease; /* Smooth transition for the hover effect */
+}
+
+.book-details {
+    text-align: center;
+    padding: 10px;
+}
+
+.book-name {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.book-price, .book-type {
+    font-size: 14px;
+    color: #565E6C;
+}
+
+
+.top-books {
+    text-align: center; /* Center-align content */
+}
+
+.view-all-btn {
+    padding: 10px 20px;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 400;
+    cursor: pointer;
+    border: 1px solid #565E6C;
+    border-radius: 4px;
+    background-color: #000000;
+}
+
+.section-title,
+.section-description {
+    text-align: center;
+}
+.search-books .section-title,
+.search-books.section-description {
+    text-align: left;
+}
+.recommend{
+
+        text-align: center;
+
+
+        width: 1440px;
+        margin: 210px auto 40px;
+
+}
+    /* Style for the search bar */
+    .search-books input[type="text"] {
+        width: 80%; /* Adjust based on your design */
+        padding: 10px; /* Add some padding inside the input */
+        border: 1px solid #ccc; /* Light grey border */
+        border-radius: 14px; /* Rounded corners */
+        margin-bottom: 10px; /* Space between the input and the button */
+    }
+
+    /* Style for the search button */
+
+    .search-btn{
+        margin-left: 10px;
+        background-color: black;
+        padding: 10px 20px;
+        color: #ffffff;
+        font-size: 15px;
+        font-weight: 400;
+        cursor: pointer;
+        border-radius: 4px;
+        margin-right: 10px;
+    }
+    
+    .search-btn:hover {
+        background-color: #333333; /* A lighter shade of black */
+        font-size: 16px; /* Slightly larger font size */
+    }
+ /* General styles */
+ body {
+    font-family: Arial, sans-serif;
+}
+
+.learn-more {
+    max-width: 100%;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.learn-more .section-title {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.learn-more.section-description {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #666;
+    font-size: 16px;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.card {
+    flex: 1 0 48%; /* Adjusts the width of the cards */
+    margin: 10px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Adds a shadow for depth */
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Slight lift effect on hover */
+}
+
+.card p {
+    margin: 0;
+    color: #333;
+    font-size: 16px;
+    line-height: 1.5;
+}

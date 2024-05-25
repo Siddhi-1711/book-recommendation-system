@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Recommendation System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        .fas {
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <img src="/static/images/logo.png" alt="Your Logo">
+                Book Recommendation
+                
+            </div>
+            
+            <nav class="nav">
+                <div class="nav-item"><a href="#" class="navbar-link">Home</a></div>
+                <div class="nav-item"><a href="#hero" class="navbar-link">Book Recommendations</a></div>
+                <div class="nav-item"><a href="#top-books" class="navbar-link">Top Books</a></div>
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <section id="hero" class="hero">
+                <div class="hero-content">
+                    <h1 class="hero-title">Discover Your Next<br />Favorite Book Today</h1>
+                    <p class="hero-description">Explore our curated collection of top book recommendations and
+                        <br />find your next literary adventure.</p>
+                    <div class="button-container">
+                        <button class="learn-more-btn">Learn More</button>
+                        <a href="/books" class="get-started-btn">Get Started</a>
+
+                    </div>
+                </div>
+            </section>
+            <section id="learn-more" class="learn-more">
+                <h2 class="section-title">Learn More About Our Book Recommendation System</h2>
+                <p class="section-description">Our book recommendation system helps you discover your next favorite book based on your preferences and interests. Here are some key features:</p>
+                <div class="card-container">
+                    <div class="card">
+                        <p><strong>Personalized Recommendations:</strong> Get book recommendations tailored to your reading history and preferences.</p>
+                    </div>
+                    <div class="card">
+                        <p><strong>Explore Top Books:</strong> Discover the most popular and highly-rated books across various genres.</p>
+                    </div>
+                    <div class="card">
+                        <p><strong>Search for Books:</strong> Easily search for specific books or authors to find what you're looking for.</p>
+                    </div>
+                    <div class="card">
+                        <p><strong>Interactive Interface:</strong> Our user-friendly interface makes it easy to browse and explore books.</p>
+                    </div>
+                </div>
+            </section>
+            
+
+            <section id="top-books" class="top-books">
+                <h2 class="section-title">Top Books</h2>
+                <p class="section-description">Explore our curated list of top books, filtered by genre, popularity, and
+                    ratings</p>
+                <div class="book-grid">
+                    {% for i in range(book_name|length) %}
+                    <div class="book-card" data-index="{{ i }}">
+                        <img class="card-img-top" src="{{ image[i] }}" alt="{{ book_name[i] }} cover">
+                        <div class="book-details">
+                            <h3 class="book-name">{{ book_name[i] }}</h3>
+                            <p class="book-price">Author: {{ author[i] }}</p>
+                            <p class="book-type">Votes: {{ votes[i] }} <i class="fas fa-thumbs-up"></i> </p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <button class="view-all-btn" data-all="false">View All</button>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const bookGrid = document.querySelector('.book-grid');
+            const viewAllBtn = document.querySelector('.view-all-btn');
+            let allBooksShown = false;
+
+            // Function to update the book grid
+            function updateBookGrid() {
+                const bookCards = Array.from(bookGrid.children);
+                bookCards.forEach((card, i) => {
+                    if (allBooksShown || i < 8) { // Show all cards or only the first 8
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none'; // Hide extra cards
+                    }
+                });
+            }
+
+            // Initial update
+            updateBookGrid();
+
+            // Update when "View All" button is clicked
+            viewAllBtn.addEventListener('click', function () {
+                allBooksShown = !allBooksShown;
+                updateBookGrid();
+                this.textContent = allBooksShown ? 'Show Fewer' : 'View All';
+            });
+            // Function to scroll to the "Learn More" section
+        function scrollToLearnMore() {
+            const learnMoreSection = document.querySelector('#learn-more');
+            learnMoreSection.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Select the "Learn More" button and add a click event listener
+        const learnMoreBtn = document.querySelector('.learn-more-btn');
+        learnMoreBtn.addEventListener('click', scrollToLearnMore);
+    
+        });
+        
+    </script>
+</body>
+
+</html>

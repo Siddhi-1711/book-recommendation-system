@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Recommendation System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <style>
+       .fas {
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+        }
+        .search-container {
+        background-image: url('/static/images/bg.jpg'); /* Replace with your image path */
+        background-size: cover; /* Cover the entire container */
+        background-position: center; /* Center the background image */
+        padding: 20px; /* Add some padding around the content */
+        text-align: center; /* Center the content */
+        height:600px;
+    }
+
+    /* Additional styles for the search-books section */
+   .search-books {
+        max-width: 600px; /* Adjust based on your design */
+        margin: 0 auto; /* Center the section */
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <img src="/static/images/logo.png" alt="Your Logo">
+                <span>Book Recommendation</span>
+                
+            </div>
+            <nav class="nav">
+                <div class="nav-item"><a href="/" class="navbar-link">Home</a></div>
+                <div class="nav-item"><a href="/books" class="navbar-link">Book Recommendations</a></div>
+                <div class="nav-item"><a href="/" class="navbar-link">Top Books</a></div>
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="search-container">
+             <!-- Search Form -->
+             <section id="search-books" class="search-books">
+                <h2 class="section-title">Search for Books</h2>
+                <form action="/recommended_books" method="post">
+                    <input type="text" name="user_input" placeholder="Search for a book..." required>
+                    <button type="submit" class="search-btn">Search</button>
+                </form>
+            </section>
+        </div>
+<div class="recommend">
+            <!-- Recommended Books -->
+            <section id="recommended-books" class="recommended-books">
+                <h2 class="section-title">Recommended Books</h2>
+                <p class="section-description">Here are some books you might like based on your search</p>
+                <div class="book-grid">
+                    {% for book in data %}
+                    <div class="book-card">
+                        <img class="card-img-top" src="{{ book[2] }}" alt="{{ book[0] }} cover">
+                        <div class="book-details">
+                            <h3 class="book-name">{{ book[0] }}</h3>
+                            <p class="book-price">Author: {{ book[1] }}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </section>
+</div>
+            
+        </main>
+    </div>
+
+
+        
+
+    </body>
+
+
+</html>
