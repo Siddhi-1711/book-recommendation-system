@@ -4,7 +4,7 @@ This repository contains a Python-based book recommendation system that leverage
 
 ![Landing Page](Screenshots/landing.png "Landing Page Screenshot")
 
-![Books Display](Screeenshots/books.png "Books Display Screenshot")
+![Books Display](Screenshots/books.png "Books Display Screenshot")
 
 ## Overview
 
